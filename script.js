@@ -12,6 +12,17 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+document.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+        // Prevent pinch zoom
+        event.preventDefault();
+    }
+}, { passive: false });
+
+document.addEventListener('dblclick', function (event) {
+    // Prevent double-tap zoom
+    event.preventDefault();
+});
 
 let scores, currentScore, activePlayer, playing;
 
